@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="form-container">
+    <p>edit-employee works!</p>
+    <mat-card class="example-card">
+      <form [formGroup]="employeeForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="First Name" formControlName="firstName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Last Name" formControlName="lastName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Identity" formControlName="identity">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="picker" placeholder="Date Start" formControlName="dateStart">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="birthdayPicker" placeholder="Birthday" formControlName="birthday">
+          <mat-datepicker-toggle matSuffix [for]="birthdayPicker"></mat-datepicker-toggle>
+          <mat-datepicker #birthdayPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option [value]="0">Male</mat-option>
+            <mat-option [value]="1">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="turquoise" type="submit" (click)="update()">save</button>
+      </form>
+    </mat-card>
+  </div>
+  <div class="table-container">
+    <div class="a">
+      <app-role-table [employeeId]="this.route.snapshot.params['id']"></app-role-table>
+    </div>
+  </div>
+</div>

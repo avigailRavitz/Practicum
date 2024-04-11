@@ -1,0 +1,47 @@
+.a{
+    margin-bottom: 20px;
+}
+.example-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .example-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .container {
+    display: flex;
+  }
+  
+  .form-container {
+    flex: 1;
+    margin-right: 20px; /* Adjust the spacing between the form and the table */
+  }
+  
+  .table-container {
+    flex: 1;
+  }
+  .container {
+    display: flex;
+    align-items: flex-start; /* הטבלה והטופס יתחילו מהקצה העליון של המסך */
+    justify-content: space-between; /* יש המרחק כולל בין הטופס והטבלה */
+  }
+  
+  .form-container,
+  .table-container {
+    flex: 1; /* שני הקומפוננטים יהיו בגובה שווה ויתחילו באותו מקום */
+    height: 100%; /* הגבהים של שני הקומפוננטים יהיו זהים */
+  }
+  
+  .table-container {
+    margin-top: 20px; /* מרווח בין הטבלה לתוכן של הקונטיינר */
+  }
+  
+  
