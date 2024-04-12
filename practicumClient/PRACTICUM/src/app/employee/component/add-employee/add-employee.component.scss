@@ -1,5 +1,6 @@
 .example-card {
-    max-width: 400px;
+    max-width: 450px;
+    min-width: 450px;
     margin: 0 auto;
   }
   
@@ -12,5 +13,63 @@
   .example-full-width {
     width: 100%;
     margin-bottom: 20px;
+  }
+  //עיצוב הכפתורים
+  .button-container {
+    display: flex;
+    justify-content: space-between 5px; /* יעדיף את space-between כדי שהם יהיו ממורכזים על כל אורך הקומפוננטה */
+  }
+  
+  .button-container button {
+    width: calc(50% - 30px); /* 50% כדי למלא את רוחב הקומפוננטה, וחישוב של calc עם מרווח של 5 פיקסלים בין הכפתורים */
+    width: 220px; /* קביעת רוחב קבוע לכל כפתור */
+  }
+  //כפתור-cancel
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #Cancel {
+    width: 220px;
+    color: rgb(230, 19, 19);
+    background-color: #f8dade;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  #Cancel:hover {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+//save
+  .button-container button {
+    width: 220px; /* קביעת רוחב קבוע לכל כפתור */
+    color: white;
+    background-color: #00796b; /* רקע בצבע טורקיז */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button-container button:disabled {
+    background-color: #ccc; /* רקע לכאשר הכפתור מושבת */
+    color: #666; /* טקסט לכאשר הכפתור מושבת */
+  }
+  
+  .button-container button#save:not(:disabled) {
+    background-color: #fff; /* רקע לבן רק כאשר הכפתור מאופשר */
+    color: #00796b; /* טקסט בצבע טורקיז רק כאשר הכפתור מאופשר */
+  }
+  
+  .button-container button#save:not(:disabled):hover {
+    background-color: #00796b; /* רקע בצבע טורקיז בעת העכבר מעל הכפתור */
+    color: #fff; /* טקסט בצבע לבן בעת העכבר מעל הכפתור */
   }
   

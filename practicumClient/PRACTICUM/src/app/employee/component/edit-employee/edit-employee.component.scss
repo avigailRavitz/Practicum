@@ -43,5 +43,32 @@
   .table-container {
     margin-top: 20px; /* מרווח בין הטבלה לתוכן של הקונטיינר */
   }
+
+  //save change
+  .button-container button {
+    width: 220px; /* קביעת רוחב קבוע לכל כפתור */
+    color: white;
+    background-color: #00796b; /* רקע בצבע טורקיז */
+    border:#00796b;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button-container button:disabled {
+    background-color: #ccc; /* רקע לכאשר הכפתור מושבת */
+    color: #666; /* טקסט לכאשר הכפתור מושבת */
+  }
+  
+  .button-container button#save:not(:disabled) {
+    background-color: #fff; /* רקע לבן רק כאשר הכפתור מאופשר */
+    color: #00796b; /* טקסט בצבע טורקיז רק כאשר הכפתור מאופשר */
+  }
+  
+  .button-container button#save:not(:disabled):hover {
+    background-color: #00796b; /* רקע בצבע טורקיז בעת העכבר מעל הכפתור */
+    color: #fff; /* טקסט בצבע לבן בעת העכבר מעל הכפתור */
+  }
   
   
