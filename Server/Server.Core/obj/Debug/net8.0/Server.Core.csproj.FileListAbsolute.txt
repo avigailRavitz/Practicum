@@ -23,3 +23,16 @@ C:\Users\USER\Desktop\Practicum\Server\Server.Core\obj\Debug\net8.0\refint\Serve
 C:\Users\USER\Desktop\Practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.pdb
 C:\Users\USER\Desktop\Practicum\Server\Server.Core\obj\Debug\net8.0\ref\Server.Core.dll
 C:\Users\USER\Desktop\Practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.sourcelink.json
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\bin\Debug\net8.0\Server.Core.deps.json
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\bin\Debug\net8.0\Server.Core.dll
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\bin\Debug\net8.0\Server.Core.pdb
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.AssemblyInfo.cs
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.sourcelink.json
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.dll
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\refint\Server.Core.dll
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\Server.Core.pdb
+C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\obj\Debug\net8.0\ref\Server.Core.dll

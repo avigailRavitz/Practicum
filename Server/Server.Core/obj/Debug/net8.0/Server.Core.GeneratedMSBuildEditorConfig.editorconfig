@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Server.Core
-build_property.ProjectDir = C:\Users\USER\Desktop\Practicum\Server\Server.Core\
+build_property.ProjectDir = C:\Users\USER\Desktop\practi\practicum\Server\Server.Core\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

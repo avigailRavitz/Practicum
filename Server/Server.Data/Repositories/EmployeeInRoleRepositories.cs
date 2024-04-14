@@ -19,13 +19,37 @@ namespace Server.Data.Repositories
         {
             _context = context;
         }
-
-        public async Task<EmployeeInRole> AddPositionToEmployeeAsync(EmployeeInRole employeeInRole)
+        public async Task<EmployeeInRole> AddPositionToEmployeeAsync(EmployeeInRole positionEmployee)
         {
-            await _context.EmployeeInRoles.AddAsync(employeeInRole);
-            _context.SaveChanges();
-            return employeeInRole;
+            // בדיקה האם התפקיד כבר קיים בטבלה והשדה IsActive הוא false
+            var existingPosition = await _context.EmployeeInRoles
+                .FirstOrDefaultAsync(ep => ep.EmployeeId == positionEmployee.EmployeeId
+                                          && ep.RoleId == positionEmployee.RoleId
+                                          && ep.StatusActive == false);
+
+            if (existingPosition != null)
+            {
+                // אם התפקיד כבר קיים והשדה IsActive הוא false, נשנה אותו לtrue
+                existingPosition.StatusActive = true;
+                var update = await UpdateRoleToEmployeeAsync(existingPosition.EmployeeId, existingPosition.RoleId, positionEmployee);
+                await _context.SaveChangesAsync();
+                return update;
+            }
+
+            // אם התפקיד אינו קיים בטבלה או שהוא כבר פעיל, נוסיף אותו בצורה רגילה
+            await _context.EmployeeInRoles.AddAsync(positionEmployee);
+            await _context.SaveChangesAsync();
+            return positionEmployee;
+
         }
+
+
+        //public async Task<EmployeeInRole> AddPositionToEmployeeAsync(EmployeeInRole employeeInRole)
+        //{
+        //    await _context.EmployeeInRoles.AddAsync(employeeInRole);
+        //    _context.SaveChanges();
+        //    return employeeInRole;
+        //}
         public async Task<IEnumerable<EmployeeInRole>> GetEmployeeByIdAsync(int id)
         {
             return await _context.EmployeeInRoles.Where(e => e.EmployeeId == id).Where(r=>r.StatusActive)

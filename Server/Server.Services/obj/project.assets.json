@@ -145,11 +145,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Desktop\\Practicum\\Server\\Server.Services\\Server.Services.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server.Services\\Server.Services.csproj",
       "projectName": "Server.Services",
-      "projectPath": "C:\\Users\\USER\\Desktop\\Practicum\\Server\\Server.Services\\Server.Services.csproj",
+      "projectPath": "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server.Services\\Server.Services.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Desktop\\Practicum\\Server\\Server.Services\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -170,8 +170,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\USER\\Desktop\\Practicum\\Server\\Server.Core\\Server.Core.csproj": {
-              "projectPath": "C:\\Users\\USER\\Desktop\\Practicum\\Server\\Server.Core\\Server.Core.csproj"
+            "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server.Core\\Server.Core.csproj": {
+              "projectPath": "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server.Core\\Server.Core.csproj"
             }
           }
         }
