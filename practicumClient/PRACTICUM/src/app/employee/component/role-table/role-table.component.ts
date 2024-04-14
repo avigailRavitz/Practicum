@@ -92,7 +92,7 @@ export class RoleTableComponent implements OnInit {
         if (formData) {
           console.log('Form data:', formData);
         } else {
-          console.log('Dialog closed without form data');
+          console.log('Dialog closed ');
         }
       });
   }

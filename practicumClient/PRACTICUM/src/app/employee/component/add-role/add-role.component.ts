@@ -83,7 +83,8 @@ export class AddRoleComponent implements OnInit {
     this._employeeService.getEmployeeById(this.employeeId).subscribe(employee => {
       this.employee = employee;
     });
-    this._roleService.getAllRoles().subscribe(role=>{
+    this._roleService.getEmployeePositionsNotAssigned(this.employeeId).subscribe(role=>{
+      console.log("getRolesNotAssignedToEmployee",role)
       this.positionlist=role;
     });
     this.positionForm.get('dateOfStartingWork')?.valueChanges.subscribe(()=>{
