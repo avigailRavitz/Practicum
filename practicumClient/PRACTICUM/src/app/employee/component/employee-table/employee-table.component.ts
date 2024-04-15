@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import * as XLSX from 'xlsx';
 import { addListener } from 'process';
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
+import { RolesComponent } from '../roles/roles.component';
 
 
 @Component({
@@ -103,8 +104,14 @@ export class EmployeeTableComponent implements OnInit {
     // לדוגמה, תוכל להשתמש ב window.print()
     window.print();
   }
-  
+  addNewRole(){
 
+  }
 
+ openRolesDialog(): void {
+    this.dialog.open(RolesComponent, {
+      width: '600px' // ניתן להתאים את הרוחב כרצונך
+    });
 
+}
 }

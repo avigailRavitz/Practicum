@@ -1,0 +1,49 @@
+/* roles.component.css */
+
+/* עיצוב כללי */
+:host {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* עיצוב כותרת */
+  mat-dialog-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* עיצוב רשימת התפקידים */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #666;
+  }
+  
+  /* כפתור סגירה */
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-start; /* מיקום הכפתור לימין */
+    margin-top: 30px;
+  }
+  
+  /* סגירת דיאלוג בצורת חץ */
+
+  
+  .close-button:hover {
+    color: #333;
+  }
+  /* עיצוב כפתור הסגירה בצורת חץ */
+.close-button {
+    margin-right: auto; /* העברת הכפתור לצד שמאל */
+    margin-top: -10px; /* העברת הכפתור למעלה */
+  }
+  

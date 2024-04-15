@@ -151,7 +151,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -163,7 +163,19 @@
               "RelativeToolTip": "Server.Services\\EmployeeInRoleServices.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T13:10:04.976Z",
+              "WhenOpened": "2024-04-03T13:10:04.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "Server\\Controllers\\RoleController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "Server\\Controllers\\RoleController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAcwC0AAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T16:32:22.792Z",
               "EditorCaption": ""
             },
             {
@@ -176,8 +188,7 @@
               "RelativeToolTip": "Server.Data\\Repositories\\EmployeeInRoleRepositories.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAACYAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T01:28:40.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T01:28:40.629Z"
             },
             {
               "$type": "Document",
@@ -189,8 +200,7 @@
               "RelativeToolTip": "Server.Data\\Repositories\\EmployeeRepositories.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAEsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T12:16:28.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T12:16:28.864Z"
             },
             {
               "$type": "Document",
@@ -202,8 +212,7 @@
               "RelativeToolTip": "Server.Data\\Repositories\\RoleRepositories.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAA1wBQAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T01:28:42.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T01:28:42.031Z"
             },
             {
               "$type": "Document",
@@ -215,21 +224,7 @@
               "RelativeToolTip": "Server\\Controllers\\EmployeeInRoleController.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAAwB4AAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T13:00:58.764Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RoleController.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server\\Controllers\\RoleController.cs",
-              "RelativeDocumentMoniker": "Server\\Controllers\\RoleController.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\practi\\practicum\\Server\\Server\\Controllers\\RoleController.cs",
-              "RelativeToolTip": "Server\\Controllers\\RoleController.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAcwCUAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T16:32:22.792Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T13:00:58.764Z"
             },
             {
               "$type": "Document",
@@ -238,8 +233,7 @@
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/My_sql/True/SqlTable/dbo.Employees.sql",
               "ToolTip": "dbo.Employees [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-04-09T02:12:15.431Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-09T02:12:15.431Z"
             },
             {
               "$type": "Document",
@@ -251,8 +245,7 @@
               "RelativeToolTip": "Server.Core\\Services\\IEmployeeInRoleServices.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAMwBAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T13:07:52.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T13:07:52.253Z"
             },
             {
               "$type": "Document",
@@ -261,8 +254,7 @@
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/My_sql/True/SqlTable/dbo.EmployeeInRoles.sql",
               "ToolTip": "dbo.EmployeeInRoles [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-04-13T23:38:26.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-13T23:38:26.724Z"
             },
             {
               "$type": "Document",
