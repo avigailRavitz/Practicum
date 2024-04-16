@@ -1,16 +1,23 @@
 <!-- תבנית ה-HTML של הקומפוננטה -->
+<mat-dialog-actions class="arrow">
+  <!-- כפתור סגירת הדיאלוג באייקון של חץ מותאם אישית -->
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    <i class="fa fa-arrow-left"></i>
+  </button>
+</mat-dialog-actions>
 
 <h2 mat-dialog-title>רשימת תפקידים</h2>
 
 <mat-dialog-content>
-  <ul>
-    <li *ngFor="let role of roles$ | async">{{ role.name }}</li>
+  <ul class="roles-list">
+    <li class="role-item" *ngFor="let role of roles$ | async">
+      <div class="role-icon"><i class="fa fa-user"></i></div>
+      <div class="role-name">{{ role.name }}</div>
+    </li>
   </ul>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-  <!-- כפתור סגירת הדיאלוג בצורת חץ -->
-  <button mat-icon-button class="close-button" (click)="closeDialog()">
-    <mat-icon>keyboard_arrow_left</mat-icon>
-  </button>
+<!-- כפתור הוספת תפקיד -->
+<mat-dialog-actions class="add-role-button">
+  <button mat-flat-button color="primary" (click)="openNewRoleDialog()">הוספת תפקיד</button>
 </mat-dialog-actions>

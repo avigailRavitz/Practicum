@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { role } from '../../../entities/role.model';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { NewRoleComponent } from '../new-role/new-role.component';
 
 @Component({
   selector: 'app-roles',
@@ -18,7 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class RolesComponent implements OnInit {
   roles$: Observable<role[]>;
 
-  constructor(private dialogRef: MatDialogRef<RolesComponent>,
+  constructor(private dialogRef: MatDialogRef<RolesComponent>,  private dialog: MatDialog,
               private roleService: RoleService) { }
 
   ngOnInit(): void {
@@ -29,4 +30,14 @@ export class RolesComponent implements OnInit {
   closeDialog(): void {
     this.dialogRef.close();
   }
+  addRole(){
+    
+  }
+  openNewRoleDialog(): void {
+    const dialogRef = this.dialog.open(NewRoleComponent, {
+      width: '300px', // רוחב הדיאלוג
+      disableClose: true, // אפשרות לסגירת הדיאלוג בלחיצה מחוץ לו
+    });}
+    
+
 }

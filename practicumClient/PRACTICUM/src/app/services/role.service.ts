@@ -26,11 +26,11 @@ export class RoleService {
   getAllRoles(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/Role`)
   }
-  addNewRole(role:role):Observable<role>
-  { 
-   return this.http.post<role>(`${this.baseUrl}/Role`,role);
+  addNewRole(roleName: string): Observable<any> {
+    const roleData = { name: roleName };
+    return this.http.post<any>(`${this.baseUrl}/Role`, roleData);
   }
-
+  
   addNewRoleToEmployee(employeeId: number, employeeRoles: employeeRoles): Observable<employeeRoles> {
     console.log("addNewRoleToEmployee", employeeRoles)
     return this.http.post<employeeRoles>(`${this.baseUrl}/EmployeeInRole/${employeeId}`, employeeRoles);

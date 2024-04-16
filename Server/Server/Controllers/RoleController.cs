@@ -39,7 +39,7 @@ namespace Server.Controllers
         }
 
         // POST api/<RoleController>
-        [HttpPost]
+        [HttpPost ]
         public async Task<ActionResult> Post([FromBody] RolePostModel name)
         {
             var roleName = await _roleService.AddRoleAsync(_mapper.Map<Role>(name));
