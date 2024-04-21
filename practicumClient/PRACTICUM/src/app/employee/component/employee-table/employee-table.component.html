@@ -75,16 +75,19 @@
             </li>
             <li class="nav-item">
                 <button id="roles-list-button" class="nav-link export-to-excel" (click)="openRolesDialog()">
-                    <i class="fa fa-tasks"></i> רשימת תפקידים
+                    <i class="fa fa-tasks">
+                        <span class="badge badge-danger">{{ rolesCount }}</span>
+                    </i> רשימת תפקידים
                 </button>
             </li>
-            
+
+
             <!-- <li class="nav-item">
                 <button id="add-role-button" class="nav-link export-to-excel" (click)="addNewRole()">
                     <i class="fa fa-plus-circle"></i> הוסף תפקיד
                 </button>
             </li> -->
-            
+
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -116,14 +119,14 @@
 <div class="container">
     <div class="table-wrapper">
         <div class="table-title">
-            
+
             <button mat-button (click)="openRolesDialog()">פתח רשימת תפקידים</button>
 
             <div class="row">
                 <div class="col-sm-8">
                     <h2>Employee <b>Details</b></h2>
                 </div>
-                
+
             </div>
         </div>
         <table class="table table-bordered">
@@ -146,17 +149,23 @@
 
                     <td>
                         <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a>
-                        <button class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"
-                                (click)="editEmployee(employee)"></i></button>
-                        <button class="delete" title="Delete" data-toggle="tooltip" (click)="deletEmployee(employee)">
-                            <i class="material-icons" style="font-family: 'Material Icons';"></i>
-                        </button>
+
+                        <a class="action-btn edit" title="Edit" (click)="editEmployee(employee)" data-toggle="tooltip">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+
+
+                        <a class="action-btn delete" title="Delete" (click)="deleteEmployee(employee)"
+                            data-toggle="tooltip">
+                            <i class="fa fa-trash"></i>
+                        </a>
 
                     </td>
+
                 </tr>
 
             </tbody>
-            
+
         </table>
     </div>
 </div>

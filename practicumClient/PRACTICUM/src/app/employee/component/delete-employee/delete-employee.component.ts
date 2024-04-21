@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, Ma
 import { EmployeeService } from '../../../services/employee.service';
 import { Employee } from '../../../entities/employee.model';
 import { publicDecrypt } from 'crypto';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
@@ -15,7 +16,20 @@ import { publicDecrypt } from 'crypto';
     MatDialogContent,
     MatDialogModule],
   templateUrl: './delete-employee.component.html',
-  styleUrl: './delete-employee.component.scss'
+  styleUrl: './delete-employee.component.scss',
+
+
+  animations: [ /* הוספת ההגדרות של האנימציה */
+  trigger('dialogAnimation', [
+    transition('void => *', [
+      style({ opacity: 0 }),
+      animate(300, style({ opacity: 1 }))
+    ]),
+    transition('* => void', [
+      animate(300, style({ opacity: 0 }))
+    ])
+  ])
+]
 })
 export class DeleteEmployeeComponent {
 

@@ -1,0 +1,62 @@
+.dialog-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.dialog-content {
+  font-size: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  animation: dialogFade 0.9s; /* הפעלת האנימציה */
+}
+
+.delete-message {
+  margin-right: 10px;
+}
+
+.employee-name {
+  font-weight: bold;
+}
+
+.warning-icon {
+  font-size: 36px;
+  color: #dc3545; /* צבע אדום */
+}
+
+.dialog-actions {
+  justify-content: flex-end;
+}
+
+.cancel-button {
+  margin-right: 10px;
+}
+
+.delete-button {
+  background-color: #dc3545; /* צבע אדום */
+  color: white;
+}
+
+.warning-icon i {
+  animation: warning-bounce 0.8s infinite alternate;
+}
+
+@keyframes warning-bounce {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-5px);
+  }
+}
+
+/* הוספת האנימציה */
+@keyframes dialogFade {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

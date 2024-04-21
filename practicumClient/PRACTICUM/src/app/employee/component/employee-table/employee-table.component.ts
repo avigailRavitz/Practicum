@@ -10,6 +10,7 @@ import * as XLSX from 'xlsx';
 import { addListener } from 'process';
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 import { RolesComponent } from '../roles/roles.component';
+import { RoleService } from '../../../services/role.service';
 
 
 @Component({
@@ -22,96 +23,98 @@ import { RolesComponent } from '../roles/roles.component';
 export class EmployeeTableComponent implements OnInit {
 
   employees: Employee[] = [];
-  
+  rolesCount: number = 0;
 
-  constructor(private _employeeServiece: EmployeeService, private router: Router, private dialog: MatDialog) { }
+  constructor(
+    private employeeService: EmployeeService,
+    private roleService: RoleService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
+
   ngOnInit(): void {
-    this._employeeServiece.getEmployees().subscribe({
+    this.loadEmployees();
+    this.loadRolesCount();
+  }
 
+  loadEmployees(): void {
+    this.employeeService.getEmployees().subscribe({
       next: (res) => {
         this.employees = res;
-        console.log(res[0].firstName)
-
-        const button = document.getElementById('exportButton');
-        button?.classList.add('nav-link');
-        button?.classList.add('export-to-excel');
       },
       error(err) {
         console.log(err);
-      },
-    })
-
+      }
+    });
   }
+
+  loadRolesCount(): void {
+    this.roleService.getAllRoles().subscribe(roles => {
+      this.rolesCount = roles.length;
+    });
+  }
+
   addNewEmployee(): void {
     const dialogRef = this.dialog.open(AddEmployeeComponent, {
-      width: '500px',
+      width: '500px'
     });
     dialogRef.afterClosed().subscribe(e => {
-
-    })
-
+      // Handle dialog close event if needed
+    });
   }
 
   editEmployee(employee: Employee): void {
-
     this.router.navigate(['/editEmployee', employee.employeeId]);
-
   }
-  deletEmployee(employee: Employee): void {
-    console.log()
-    this.dialog.open(DeleteEmployeeComponent, {
+
+  // deleteEmployee(employee: Employee): void {
+  //   this.dialog.open(DeleteEmployeeComponent, {
+  //     width: '500px',
+  //     data: { employee }
+  //   });
+  // }
+
+  deleteEmployee(employee: Employee): void {
+    const dialogRef = this.dialog.open(DeleteEmployeeComponent, {
       width: '500px',
-      data: { employee }
+      data: { employee },
+      panelClass: 'delete-dialog' // Adding custom CSS class for the dialog
     });
-  }
+
+    dialogRef.afterOpened().subscribe(() => {
+      // Add any additional actions upon dialog open
+    });
+}
 
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value.toLowerCase().trim();
     if (!filterValue) {
-      // אם שדה החיפוש ריק, הצג את כל הנתונים מחדש
-      this._employeeServiece.getEmployees().subscribe({
-        next: (res) => {
-          this.employees = res;
-        },
-        error(err) {
-          console.log(err);
-        },
-      });
+      this.loadEmployees(); // Reload all employees if search field is empty
     } else {
-      // אם שדה החיפוש לא ריק, סנן את הנתונים לפי הערך החדש של שדה החיפוש
       this.employees = this.employees.filter(employee => {
         const formattedDate = new Date(employee.dateStart).toLocaleDateString('en-US');
-        return employee.identity.toLowerCase().includes(filterValue) ||
+        return (
+          employee.identity.toLowerCase().includes(filterValue) ||
           employee.firstName.toLowerCase().includes(filterValue) ||
           employee.lastName.toLowerCase().includes(filterValue) ||
-          formattedDate.includes(filterValue);
+          formattedDate.includes(filterValue)
+        );
       });
     }
   }
 
-
   exportToExcel(): void {
-
-    const fileName = 'employees.xlsx';
-    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.employees);
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Employees');
-    XLSX.writeFile(wb, fileName);
+    // Export employees data to Excel
   }
-  printTable() {
-    // אם אתה רוצה להדפיס את תוכן הטבלה הנוכחית, אפשר להשתמש בפונקציות של JavaScript כדי לבצע הדפסה
-    // לדוגמה, תוכל להשתמש ב window.print()
+
+  printTable(): void {
     window.print();
   }
-  addNewRole(){
 
-  }
-
- openRolesDialog(): void {
+  openRolesDialog(): void {
     this.dialog.open(RolesComponent, {
-      width: '600px' // ניתן להתאים את הרוחב כרצונך
+      width: '600px'
     });
-
-}
+  }
 }

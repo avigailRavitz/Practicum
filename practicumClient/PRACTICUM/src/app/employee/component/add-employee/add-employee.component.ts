@@ -23,11 +23,12 @@ import { Router } from '@angular/router';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
-    , MatButtonModule,
+    MatSelectModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
-     CommonModule],
+    CommonModule
+  ],
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.scss']
 })
@@ -53,7 +54,49 @@ export class AddEmployeeComponent implements OnInit {
       birthday: new FormControl("", [Validators.required]),
       gender: new FormControl("", [Validators.required]),
     });
+
+    // Subscribe to changes in the birthday field
+    this.employeeForm.get('birthday')?.valueChanges.subscribe(value => {
+      this.validateAge(value); // Call the function to validate age
+    });
+
+      // Subscribe to changes in the dateStart field
+  this.employeeForm.get('dateStart')?.valueChanges.subscribe(value => {
+    this.validateDateStart(value); // Call the function to validate dateStart
+  });
   }
+
+  validateAge(birthday: Date): void {
+    if (birthday) {
+      const today = new Date();
+      let age = today.getFullYear() - birthday.getFullYear();
+      const monthDiff = today.getMonth() - birthday.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
+        age--; // Subtract 1 year if birthday hasn't occurred yet this year
+      }
+      if (age < 18) {
+        this.employeeForm.get('birthday')?.setErrors({ 'underage': true }); // Set custom error if underage
+      } else {
+        this.employeeForm.get('birthday')?.setErrors(null); // Clear custom error if not underage
+      }
+    }
+  }
+  
+  validateDateStart(dateStart: Date): void {
+    if (dateStart) {
+      const today = new Date();
+      // Define the minimum allowed date, for example, 1 month from today
+      const minDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+      console.log("minDate",minDate)
+      if (dateStart < minDate) {
+        console.log("dateStart < minDate")
+        this.employeeForm.get('dateStart')?.setErrors({ 'tooEarly': true });
+      } else {
+        this.employeeForm.get('dateStart')?.setErrors(null);
+      }
+    }
+  }
+  
 
   addEmployee(): void {
     console.log("this.employeeForm.valid", this.employeeForm.valid)
@@ -98,9 +141,14 @@ export class AddEmployeeComponent implements OnInit {
         }
         return 'תבנית לא תקינה';
       }
+      if (control.errors['underage']) {
+        return 'העובד חייב להיות בן 18 ומעלה';
+      }
+      if (control.errors['tooEarly']) {
+        return 'לא ניתן לקבוע תאריך כניסה לעבודה לפני תאריך חודש התאריך הנוכחי';
+      }
     }
     return '';
   }
 
 }
-
