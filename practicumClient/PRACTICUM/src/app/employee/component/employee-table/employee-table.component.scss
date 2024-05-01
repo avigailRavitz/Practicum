@@ -1,80 +1,98 @@
 .table-wrapper {
-    width: 100%;
-    margin:auto;
-    background: #fff;
-    padding: 20px;	
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  width: 100%;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
+
 .table-title {
-    padding-bottom: 10px;
-    margin: 0 0 10px;
+  padding-bottom: 10px;
+  margin: 0 0 10px;
 }
+
 .table-title h2 {
-    margin: 6px 0 0;
-    font-size: 22px;
+  margin: 6px 0 0;
+  font-size: 22px;
 }
+
 .table-title .add-new {
-float: right;
-    height: 30px;
-    font-weight: bold;
-    font-size: 12px;
-    text-shadow: none;
-    min-width: 100px;
-    border-radius: 50px;
-    line-height: 13px;
+  float: right;
+  height: 30px;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: none;
+  min-width: 100px;
+  border-radius: 50px;
+  line-height: 13px;
 }
+
 .table-title .add-new i {
-    margin-right: 4px;
+  margin-right: 4px;
 }
+
 table.table {
-    table-layout: fixed;
+  table-layout: fixed;
 }
-table.table tr th, table.table tr td     {
-    border-color: #e9e9e9;
+
+table.table tr th,
+table.table tr td {
+  border-color: #e9e9e9;
 }
+
 table.table th i {
-    font-size: 13px;
-    margin: 0 5px;
-    cursor: pointer;
+  font-size: 13px;
+  margin: 0 5px;
+  cursor: pointer;
 }
+
 table.table th:last-child {
-    width: 100px;
+  width: 100px;
 }
+
 table.table td a {
-    cursor: pointer;
-    display: inline-block;
-    margin: 0 5px;
-    min-width: 24px;
-}    
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px;
+  min-width: 24px;
+}
+
 table.table td a.add {
-    color: #27C46B;
+  color: #27C46B;
 }
+
 table.table td a.edit {
-    color: #FFC107;
+  color: #FFC107;
 }
+
 table.table td a.delete {
-    color: #E34724;
+  color: #E34724;
 }
+
 table.table td i {
-    font-size: 19px;
+  font-size: 19px;
 }
+
 table.table td a.add i {
-    font-size: 24px;
-    margin-right: -1px;
-    position: relative;
-    top: 3px;
-}    
+  font-size: 24px;
+  margin-right: -1px;
+  position: relative;
+  top: 3px;
+}
+
 table.table .form-control {
-    height: 32px;
-    line-height: 32px;
-    box-shadow: none;
-    border-radius: 2px;
+  height: 32px;
+  line-height: 32px;
+  box-shadow: none;
+  border-radius: 2px;
 }
+
 table.table .form-control.error {
-    border-color: #f50000;
+  border-color: #f50000;
 }
+
 table.table td .add {
-    display: none;
+  display: none;
 }
 
 
@@ -84,25 +102,25 @@ table.table td .add {
 //navbar
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
-.navbar-icon-top .navbar-nav .nav-link > .fa {
+.navbar-icon-top .navbar-nav .nav-link>.fa {
   position: relative;
   width: 36px;
   font-size: 24px;
 }
 
-.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+.navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
   font-size: 0.75rem;
   position: absolute;
   right: 0;
   font-family: sans-serif;
 }
 
-.navbar-icon-top .navbar-nav .nav-link > .fa {
+.navbar-icon-top .navbar-nav .nav-link>.fa {
   top: 3px;
   line-height: 12px;
 }
 
-.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+.navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
   top: -10px;
 }
 
@@ -116,7 +134,7 @@ table.table td .add {
     padding-bottom: 0;
   }
 
-  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa {
     display: block;
     width: 48px;
     margin: 2px auto 4px auto;
@@ -124,7 +142,7 @@ table.table td .add {
     line-height: 24px;
   }
 
-  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa>.badge {
     top: -7px;
   }
 }
@@ -139,7 +157,7 @@ table.table td .add {
     padding-bottom: 0;
   }
 
-  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa {
     display: block;
     width: 48px;
     margin: 2px auto 4px auto;
@@ -147,7 +165,7 @@ table.table td .add {
     line-height: 24px;
   }
 
-  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa>.badge {
     top: -7px;
   }
 }
@@ -162,7 +180,7 @@ table.table td .add {
     padding-bottom: 0;
   }
 
-  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa {
     display: block;
     width: 48px;
     margin: 2px auto 4px auto;
@@ -170,7 +188,7 @@ table.table td .add {
     line-height: 24px;
   }
 
-  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa>.badge {
     top: -7px;
   }
 }
@@ -185,7 +203,7 @@ table.table td .add {
     padding-bottom: 0;
   }
 
-  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa {
     display: block;
     width: 48px;
     margin: 2px auto 4px auto;
@@ -193,7 +211,7 @@ table.table td .add {
     line-height: 24px;
   }
 
-  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa>.badge {
     top: -7px;
   }
 }
@@ -203,95 +221,105 @@ table.table td .add {
 /* style.css */
 
 .export-to-excel .fa {
-    font-size: 35px !important; /* הגדלת גודל האיקון עם עקביות */
-  }
-  
-  
+  font-size: 35px !important;
+  /* הגדלת גודל האיקון עם עקביות */
+}
+
+
 .nav-link.export-to-excel {
-    position: relative;
-    width: 60px;
-    font-size:11px;
-    background-color: transparent;
-    border: none;
-    margin-left: 10px; /* מרווח משמאל */
-    margin-right: 30px; /* מרווח מימין */
-  }
-  
-  .nav-link.export-to-excel > .fa {
-    position: absolute;
-    width: 100%;
-    top: 3px;
-    line-height: 12px;
-    text-align: center;
-  }
-  
-  .nav-link.export-to-excel > .fa > .badge {
-    font-size: 0.75rem;
-    position: absolute;
-    right: 0;
-    font-family: sans-serif;
-    top: -10px;
-  }
+  position: relative;
+  width: 60px;
+  font-size: 11px;
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  /* מרווח משמאל */
+  margin-right: 30px;
+  /* מרווח מימין */
+}
+
+.nav-link.export-to-excel>.fa {
+  position: absolute;
+  width: 100%;
+  top: 3px;
+  line-height: 12px;
+  text-align: center;
+}
+
+.nav-link.export-to-excel>.fa>.badge {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
+  top: -10px;
+}
+
 //print
 .export-to-excel .fa {
-    font-size: 35px !important; /* הגדלת גודל האיקון עם עקביות */
-  }
-  
-  .nav-link.export-to-excel {
-    position: relative;
-    width: 60px;
-    font-size: 11px;
-    background-color: transparent;
-    border: none;
-    margin-left: 10px; /* מרווח משמאל */
-    margin-right: 30px; /* מרווח מימין */
-  }
-  
-  .nav-link.export-to-excel > .fa {
-    position: absolute;
-    width: 100%;
-    top: 3px;
-    line-height: 12px;
-    text-align: center;
-  }
-  
-  .nav-link.export-to-excel > .fa > .badge {
-    font-size: 0.75rem;
-    position: absolute;
-    right: 0;
-    font-family: sans-serif;
-    top: -10px;
-  }
-  //הוספת עובד
-  .add-employee-button {
-    position: relative;
-    width: 50px;
-    font-size: 10px;
-    background-color: transparent;
-    border: none;
-    margin-left: 10px; /* מרווח משמאל */
-    margin-right: 30px; /* מרווח מימין */
+  font-size: 35px !important;
+  /* הגדלת גודל האיקון עם עקביות */
 }
 
-.add-employee-button > .fa {
-    position: absolute;
-    width: 100%;
-    top: 3px;
-    line-height: 12px;
-    text-align: center;
+.nav-link.export-to-excel {
+  position: relative;
+  width: 60px;
+  font-size: 11px;
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  /* מרווח משמאל */
+  margin-right: 30px;
+  /* מרווח מימין */
 }
 
-.add-employee-button > .fa > .badge {
-    font-size: 0.75rem;
-    position: absolute;
-    right: 0;
-    font-family: sans-serif;
-    top: -10px;
+.nav-link.export-to-excel>.fa {
+  position: absolute;
+  width: 100%;
+  top: 3px;
+  line-height: 12px;
+  text-align: center;
 }
 
-  
-  
-  
+.nav-link.export-to-excel>.fa>.badge {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
+  top: -10px;
+}
+
+//הוספת עובד
+.add-employee-button {
+  position: relative;
+  width: 50px;
+  font-size: 10px;
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  /* מרווח משמאל */
+  margin-right: 30px;
+  /* מרווח מימין */
+}
+
+.add-employee-button>.fa {
+  position: absolute;
+  width: 100%;
+  top: 3px;
+  line-height: 12px;
+  text-align: center;
+}
+
+.add-employee-button>.fa>.badge {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
+  top: -10px;
+}
+
+
+
+
 //עריכה מחיקה
 
 .action-btn {
@@ -309,34 +337,110 @@ table.table td .add {
 }
 
 .action-btn:hover i {
-  color: #dc3545; /* צבע אדום */
+  color: #dc3545;
+  /* צבע אדום */
 }
 
-//אנימציה של פתיחת דילוג 
-.dialog-enter {
-  opacity: 0;
+// //אנימציה של פתיחת דילוג 
+// .dialog-enter {
+//   opacity: 0;
+// }
+
+// .dialog-enter-active {
+//   opacity: 1;
+//   transition: opacity 300ms ease-in;
+// }
+
+// .dialog-exit {
+//   opacity: 1;
+// }
+
+// .dialog-exit-active {
+//   opacity: 0;
+//   transition: opacity 300ms ease-out;
+// }
+
+
+.logo {
+  width: 75px;
+  height: 75px;
 }
 
-.dialog-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
+/* סגנון עבור כותרות העמודות */
+.table-wrapper th {
+  position: sticky;
+  top: 0;
+  /* הכותרות ישארו בראש הטבלה */
+  background-color: #f2f2f2;
+  /* רקע אפור לכותרות העמודות */
+  z-index: 1;
+  /* הכותרות יהיו מעל לתוכן הטבלה */
 }
 
-.dialog-exit {
-  opacity: 1;
+//עיצוב לטבלה
+/* עיצוב כותרות העמודות */
+.table-wrapper th {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  z-index: 1;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
 }
 
-.dialog-exit-active {
-  opacity: 0;
-  transition: opacity 300ms ease-out;
+/* עיצוב שורות הטבלה */
+.table-wrapper td {
+  padding: 10px;
+  text-align: center;
 }
 
+/* עיצוב שורות הטבלה בצבעי רקע חלוקים */
+.table-wrapper tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
 
-  
-  
+/* עיצוב שורת הכותרות בטבלה */
+.table-title h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
 
+/* עיצוב כפתורי הפעולה */
+.action-btn {
+  // margin: 0 5px;
+  // padding: 5px 10px;
+  // font-size: 18px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
 
+.action-btn:hover {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
 
+/* עיצוב שורות הטבלה כאשר העכבר עובר עליהן */
+.table-wrapper tbody tr:hover {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
 
+// /* עיצוב כפתורי הפעולה */
+// .action-btn {
+//   margin: 0 5px;
+//   padding: 5px 10px;
+//   font-size: 16px;
+//   border: none;
+//   cursor: pointer;
+//   background-color: transparent;
+//   color: #2c3e50;
+//   transition: background-color 0.3s ease;
+// }
 
-
+.action-btn:hover {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}

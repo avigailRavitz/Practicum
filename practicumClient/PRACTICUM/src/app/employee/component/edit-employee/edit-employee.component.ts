@@ -15,6 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { RoleService } from '../../../services/role.service';
+import { RolesComponent } from '../roles/roles.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AddRoleComponent } from '../add-role/add-role.component';
 
 @Component({
   selector: 'app-edit-employee',
@@ -33,16 +37,21 @@ import { CommonModule } from '@angular/common';
 })
 
 export class EditEmployeeComponent implements OnInit {
+  rolesCount: number = 0;
   employeeForm!: FormGroup;
+  
   employee!: Employee
   employeeId!: number
   constructor(
     private _employeeService: EmployeeService,
+    private roleService: RoleService,
     private formBuilder: FormBuilder,
     private router: Router,
-    public route: ActivatedRoute,) {
+    public route: ActivatedRoute,
+    private dialog: MatDialog) {
   }
   ngOnInit(): void {
+    this.loadRolesCount();
     console.log("999999999999999999")
     this.employeeId = Number(this.route.snapshot.paramMap.get('id'));
     this._employeeService.getEmployeeById(this.employeeId).subscribe({
@@ -61,6 +70,13 @@ export class EditEmployeeComponent implements OnInit {
     })
     this.initForm();
   }
+
+  loadRolesCount(): void {
+    this.roleService.getAllRoles().subscribe(roles => {
+      this.rolesCount = roles.length;
+    });
+  }
+  
   update(): void {
     if (this.employeeForm.valid) {
       const employee: Employee = {
@@ -114,6 +130,34 @@ export class EditEmployeeComponent implements OnInit {
     }
     return '';
   }
+
+  printTable(): void {
+    window.print();
+  }
+  openRolesDialog(): void {
+    this.dialog.open(RolesComponent, {
+      width: '600px'
+    });
+  }
+
+  //הוספת תפקיד לעובד
+
+  openAddEmployeeDialog(): void {
+    const dialogRef = this.dialog.open(AddRoleComponent, {
+        width: '50%',
+        height:'70%',
+        data: { employeeId: this.employeeId } // Pass employeeId to the dialog component
+      });
+  
+      dialogRef.afterClosed().subscribe(formData => {
+        if (formData) {
+          console.log('Form data:', formData);
+        } else {
+          console.log('Dialog closed ');
+        }
+      });
+  }
+  
 }
 
 

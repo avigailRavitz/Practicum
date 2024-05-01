@@ -4,7 +4,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <img class="logo" src="../../../../assets/לוגו.jpg" alt="Image Description">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,37 +19,7 @@
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-envelope-o">
-                        <span class="badge badge-danger">11</span>
-                    </i>
-                    Link
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                    <i class="fa fa-envelope-o">
-                        <span class="badge badge-warning">11</span>
-                    </i>
-                    Disabled
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-envelope-o">
-                        <span class="badge badge-primary">11</span>
-                    </i>
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
+
         </ul>
         <ul class="navbar-nav ">
 
@@ -81,14 +51,6 @@
                 </button>
             </li>
 
-
-            <!-- <li class="nav-item">
-                <button id="add-role-button" class="nav-link export-to-excel" (click)="addNewRole()">
-                    <i class="fa fa-plus-circle"></i> הוסף תפקיד
-                </button>
-            </li> -->
-
-
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
@@ -119,9 +81,6 @@
 <div class="container">
     <div class="table-wrapper">
         <div class="table-title">
-
-            <button mat-button (click)="openRolesDialog()">פתח רשימת תפקידים</button>
-
             <div class="row">
                 <div class="col-sm-8">
                     <h2>Employee <b>Details</b></h2>
@@ -129,43 +88,32 @@
 
             </div>
         </div>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>identity</th>
-                    <th>firstName</th>
-                    <th>lastName</th>
-                    <th>dateStart</th>
-
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let employee of employees">
-                    <td>{{ employee.identity }}</td>
-                    <td> {{ employee.firstName }}</td>
-                    <td> {{ employee.lastName }}</td>
-                    <td> {{ employee.dateStart | date }}</td>
-
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a>
-
-                        <a class="action-btn edit" title="Edit" (click)="editEmployee(employee)" data-toggle="tooltip">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-
-
-                        <a class="action-btn delete" title="Delete" (click)="deleteEmployee(employee)"
-                            data-toggle="tooltip">
-                            <i class="fa fa-trash"></i>
-                        </a>
-
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
+        <div class="table-wrapper" style="max-height: 500px; overflow-y: auto;">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>identity</th>
+                        <th>firstName</th>
+                        <th>lastName</th>
+                        <th>dateStart</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees">
+                        <td>{{ employee.identity }}</td>
+                        <td>{{ employee.firstName }}</td>
+                        <td>{{ employee.lastName }}</td>
+                        <td>{{ employee.dateStart | date }}</td>
+                        <td>
+                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a>
+                            <a class="action-btn edit" title="Edit" (click)="editEmployee(employee)" data-toggle="tooltip"><i class="fa fa-pencil"></i></a>
+                            <a class="action-btn delete" title="Delete" (click)="deleteEmployee(employee)" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
     </div>
 </div>

@@ -67,13 +67,6 @@ export class EmployeeTableComponent implements OnInit {
     this.router.navigate(['/editEmployee', employee.employeeId]);
   }
 
-  // deleteEmployee(employee: Employee): void {
-  //   this.dialog.open(DeleteEmployeeComponent, {
-  //     width: '500px',
-  //     data: { employee }
-  //   });
-  // }
-
   deleteEmployee(employee: Employee): void {
     const dialogRef = this.dialog.open(DeleteEmployeeComponent, {
       width: '500px',
@@ -105,9 +98,13 @@ export class EmployeeTableComponent implements OnInit {
   }
 
   exportToExcel(): void {
-    // Export employees data to Excel
-  }
 
+    const fileName = 'employees.xlsx';
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.employees);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Employees');
+    XLSX.writeFile(wb, fileName);
+  }
   printTable(): void {
     window.print();
   }
