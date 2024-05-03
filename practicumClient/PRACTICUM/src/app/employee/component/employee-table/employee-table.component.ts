@@ -59,7 +59,7 @@ export class EmployeeTableComponent implements OnInit {
       width: '500px'
     });
     dialogRef.afterClosed().subscribe(e => {
-      // Handle dialog close event if needed
+      this.loadEmployees();
     });
   }
 
@@ -71,11 +71,12 @@ export class EmployeeTableComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteEmployeeComponent, {
       width: '500px',
       data: { employee },
-      panelClass: 'delete-dialog' // Adding custom CSS class for the dialog
+      panelClass: 'delete-dialog'
     });
 
     dialogRef.afterOpened().subscribe(() => {
-      // Add any additional actions upon dialog open
+      this.ngOnInit()
+    
     });
 }
 

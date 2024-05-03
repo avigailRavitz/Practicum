@@ -85,17 +85,24 @@ export class AddEmployeeComponent implements OnInit {
   validateDateStart(dateStart: Date): void {
     if (dateStart) {
       const today = new Date();
-      // Define the minimum allowed date, for example, 1 month from today
-      const minDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-      console.log("minDate",minDate)
-      if (dateStart < minDate) {
+      // Define the minimum allowed date, for example, 2 months back from today
+      const minDate = new Date(today.getFullYear(), today.getMonth() - 2, today.getDate());
+      const maxDate = new Date(today.getFullYear(), today.getMonth() + 2, today.getDate());
+      console.log("minDate", minDate);
+      console.log("maxDate", maxDate);
+      if (dateStart < minDate || dateStart > maxDate) {
+        // console.log("dateStart is not within the allowed range");
+        // this.employeeForm.get('dateStart')?.setErrors({ 'outOfRange': true });
         console.log("dateStart < minDate")
         this.employeeForm.get('dateStart')?.setErrors({ 'tooEarly': true });
+        
       } else {
+        console.log("dateStart is within the allowed range");
         this.employeeForm.get('dateStart')?.setErrors(null);
       }
     }
   }
+  
   
 
   addEmployee(): void {

@@ -11,7 +11,10 @@ import { NewRoleComponent } from '../new-role/new-role.component';
 @Component({
   selector: 'app-roles',
   standalone: true,
-  imports: [MatDialogModule,CommonModule ,MatIconModule],
+  imports: [
+    MatDialogModule,
+    CommonModule,
+    MatIconModule],
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.scss'
 })
@@ -19,25 +22,29 @@ import { NewRoleComponent } from '../new-role/new-role.component';
 export class RolesComponent implements OnInit {
   roles$: Observable<role[]>;
 
-  constructor(private dialogRef: MatDialogRef<RolesComponent>,  private dialog: MatDialog,
-              private roleService: RoleService) { }
+  constructor(
+    private dialogRef: MatDialogRef<RolesComponent>,
+    private dialog: MatDialog,
+    private roleService: RoleService) { }
 
   ngOnInit(): void {
-
     this.roles$ = this.roleService.getAllRoles();
   }
 
   closeDialog(): void {
     this.dialogRef.close();
   }
-  addRole(){
-    
-  }
+
   openNewRoleDialog(): void {
     const dialogRef = this.dialog.open(NewRoleComponent, {
       width: '300px', // רוחב הדיאלוג
       disableClose: true, // אפשרות לסגירת הדיאלוג בלחיצה מחוץ לו
-    });}
-    
+    });
+    dialogRef.afterClosed().subscribe(formData => {
+      this.ngOnInit()
+    });
+  }
+
+
 
 }

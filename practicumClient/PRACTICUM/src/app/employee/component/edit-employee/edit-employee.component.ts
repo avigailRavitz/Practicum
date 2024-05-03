@@ -150,6 +150,7 @@ export class EditEmployeeComponent implements OnInit {
       });
   
       dialogRef.afterClosed().subscribe(formData => {
+        this.initForm();
         if (formData) {
           console.log('Form data:', formData);
         } else {

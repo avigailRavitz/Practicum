@@ -15,35 +15,35 @@ import { EditRoleComponent } from '../edit-role/edit-role.component';
   selector: 'app-role-table',
   standalone: true,
   imports: [MatIconModule,
-        CommonModule,
+    CommonModule,
     MatTableModule,
     MatIconModule],
   templateUrl: './role-table.component.html',
   styleUrl: './role-table.component.scss'
 })
 export class RoleTableComponent implements OnInit {
- 
+
   @Input() employeeId !: number;
-  @Input() roleId!:number;
+  @Input() roleId!: number;
   displayedColumns: string[] = ['nameRole', 'dateStart', 'manager', 'action'];
   employees!: MatTableDataSource<employeeRoles>;
 
   constructor(
     private _roleService: RoleService,
-    private dialog: MatDialog, 
-    ) {
+    private dialog: MatDialog,
+  ) {
   }
 
   ngOnInit(): void {
-    console.log("employeeId",this.employeeId);
+    console.log("employeeId", this.employeeId);
     this._roleService.getPositionOfEmployeeById(this.employeeId).subscribe({
-      next: (res:employeeRoles[] |employeeRoles) => {
+      next: (res: employeeRoles[] | employeeRoles) => {
         if (Array.isArray(res)) {
           this.employees = new MatTableDataSource<employeeRoles>(res);
         } else {
           this.employees = new MatTableDataSource<employeeRoles>([res]);
-        }        
-         console.log("this.employees", this.employees.data);
+        }
+        console.log("this.employees", this.employees.data);
       },
       error: (err) => {
         console.log(err);
@@ -51,49 +51,55 @@ export class RoleTableComponent implements OnInit {
     });
   }
 
-  editEmployee(employeeRoles: employeeRoles) :void{
+  editRoleEmployee(employeeRoles: employeeRoles): void {
     const dialogRef = this.dialog.open(EditRoleComponent, {
       width: '50%',
-      height:'50%',
-      data: { employeeId: this.employeeId ,roleId: employeeRoles.roleId}
+      height: '50%',
+      data: { employeeId: this.employeeId, roleId: employeeRoles.roleId }
     });
-    
+
 
     dialogRef.afterClosed().subscribe(formData => {
+      this.ngOnInit()
       if (formData) {
         console.log('Form data:', formData);
       } else {
         console.log('Dialog closed without form data');
-      }  
-    // Handle edit action
+      }
+      // Handle edit action
     });
     console.log('Edit employee:', employeeRoles);
   }
 
-  deleteEmployee(employee: employeeRoles) {
-    console.log("this.roleId",employee.roleId)
+  deleteRoleEmployee(employee: employeeRoles) {
+    console.log("this.roleId", employee.roleId)
     const roleId: number = Number(employee.roleId);
-    this._roleService.deletePositionOfEmployee(this.employeeId,roleId).subscribe(e=>{
+    this._roleService.deletePositionOfEmployee(this.employeeId, roleId).subscribe(e => {
+      this.ngOnInit()
       next: () => {
         console.log("kkkk")
+        
       }
     })
+   
     console.log('Delete employee:', employee);
   }
 
-  openAddEmployeeDialog(): void {
+  openAddRoleToEmployeeDialog(): void {
     const dialogRef = this.dialog.open(AddRoleComponent, {
-        width: '50%',
-        height:'70%',
-        data: { employeeId: this.employeeId } // Pass employeeId to the dialog component
-      });
-  
-      dialogRef.afterClosed().subscribe(formData => {
-        if (formData) {
-          console.log('Form data:', formData);
-        } else {
-          console.log('Dialog closed ');
-        }
-      });
+      width: '50%',
+      height: '70%',
+      data: { employeeId: this.employeeId } // Pass employeeId to the dialog component
+    });
+    this.ngOnInit()
+
+    dialogRef.afterClosed().subscribe(formData => {
+      
+      if (formData) {
+        console.log('Form data:', formData);
+      } else {
+        console.log('Dialog closed ');
+      }
+    });
   }
 }

@@ -35,9 +35,6 @@
                     Print
                 </button>
             </li>
-
-
-
             <li class="nav-item">
                 <button id="add-employee-button" class="nav-link export-to-excel" (click)="addNewEmployee()">
                     <i class="fa fa-user-plus"></i> הוסףעובד
@@ -107,13 +104,15 @@
                         <td>{{ employee.dateStart | date }}</td>
                         <td>
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons"></i></a>
-                            <a class="action-btn edit" title="Edit" (click)="editEmployee(employee)" data-toggle="tooltip"><i class="fa fa-pencil"></i></a>
-                            <a class="action-btn delete" title="Delete" (click)="deleteEmployee(employee)" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                            <a class="action-btn edit" title="Edit" (click)="editEmployee(employee)"
+                                data-toggle="tooltip"><i class="fa fa-pencil"></i></a>
+                            <a class="action-btn delete" title="Delete" (click)="deleteEmployee(employee)"
+                                data-toggle="tooltip"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        
+
     </div>
 </div>
