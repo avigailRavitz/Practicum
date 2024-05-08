@@ -6,7 +6,6 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { EmployeeService } from '../../../services/employee.service';
 import { Employee } from '../../../entities/employee.model';
-
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -24,14 +23,15 @@ import { AddRoleComponent } from '../add-role/add-role.component';
   selector: 'app-edit-employee',
   standalone: true,
   imports: [RoleTableComponent,
-     ReactiveFormsModule,
-      MatInputModule, MatDatepickerModule,
-       MatNativeDateModule,
-        MatSelectModule, 
-        MatButtonModule,
-         MatFormFieldModule,
-          MatCardModule,
-          CommonModule],
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatCardModule,
+    CommonModule],
   templateUrl: './edit-employee.component.html',
   styleUrl: './edit-employee.component.scss'
 })
@@ -39,7 +39,7 @@ import { AddRoleComponent } from '../add-role/add-role.component';
 export class EditEmployeeComponent implements OnInit {
   rolesCount: number = 0;
   employeeForm!: FormGroup;
-  
+
   employee!: Employee
   employeeId!: number
   constructor(
@@ -59,8 +59,8 @@ export class EditEmployeeComponent implements OnInit {
         this.employee = res;
         console.log("this.employee", this.employee)
         this.employeeForm = this.formBuilder.group({
-          firstName: [this.employee.firstName,  [Validators.required, Validators.minLength(2)]],
-          lastName: [this.employee.lastName,  [Validators.required, Validators.minLength(2)]],
+          firstName: [this.employee.firstName, [Validators.required, Validators.minLength(2)]],
+          lastName: [this.employee.lastName, [Validators.required, Validators.minLength(2)]],
           identity: [this.employee.identity, [Validators.required, Validators.pattern(/^\d{9}$/)]],
           birthday: [this.employee.birthday, Validators.required],
           gender: [this.employee.gender, Validators.required],
@@ -76,7 +76,7 @@ export class EditEmployeeComponent implements OnInit {
       this.rolesCount = roles.length;
     });
   }
-  
+
   update(): void {
     if (this.employeeForm.valid) {
       const employee: Employee = {
@@ -99,8 +99,8 @@ export class EditEmployeeComponent implements OnInit {
       console.log("employeeeee", employee)
     }
   }
-  addRole():void{
-    
+  addRole(): void {
+
   }
   initForm(): void {
     this.employeeForm = this.formBuilder.group({
@@ -144,21 +144,21 @@ export class EditEmployeeComponent implements OnInit {
 
   openAddEmployeeDialog(): void {
     const dialogRef = this.dialog.open(AddRoleComponent, {
-        width: '50%',
-        height:'70%',
-        data: { employeeId: this.employeeId } // Pass employeeId to the dialog component
-      });
-  
-      dialogRef.afterClosed().subscribe(formData => {
-        this.initForm();
-        if (formData) {
-          console.log('Form data:', formData);
-        } else {
-          console.log('Dialog closed ');
-        }
-      });
+      width: '50%',
+      height: '70%',
+      data: { employeeId: this.employeeId } 
+    });
+
+    dialogRef.afterClosed().subscribe(formData => {
+      this.initForm();
+      if (formData) {
+        console.log('Form data:', formData);
+      } else {
+        console.log('Dialog closed ');
+      }
+    });
   }
-  
+
 }
 
 

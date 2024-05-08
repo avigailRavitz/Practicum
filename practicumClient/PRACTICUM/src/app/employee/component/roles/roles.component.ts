@@ -44,7 +44,5 @@ export class RolesComponent implements OnInit {
       this.ngOnInit()
     });
   }
-
-
-
 }
+

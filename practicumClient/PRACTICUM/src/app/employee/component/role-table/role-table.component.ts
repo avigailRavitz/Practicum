@@ -10,6 +10,7 @@ import { RoleService } from '../../../services/role.service';
 import { Router } from 'express';
 import { AddRoleComponent } from '../add-role/add-role.component';
 import { EditRoleComponent } from '../edit-role/edit-role.component';
+import { DeleteRoleComponent } from '../delete-role/delete-role.component';
 
 @Component({
   selector: 'app-role-table',
@@ -66,7 +67,7 @@ export class RoleTableComponent implements OnInit {
       } else {
         console.log('Dialog closed without form data');
       }
-      // Handle edit action
+
     });
     console.log('Edit employee:', employeeRoles);
   }
@@ -74,16 +75,41 @@ export class RoleTableComponent implements OnInit {
   deleteRoleEmployee(employee: employeeRoles) {
     console.log("this.roleId", employee.roleId)
     const roleId: number = Number(employee.roleId);
-    this._roleService.deletePositionOfEmployee(this.employeeId, roleId).subscribe(e => {
+
+    // this._roleService.deletePositionOfEmployee(this.employeeId, roleId).subscribe(e => {
+    //   this.ngOnInit()
+    //   next: () => {
+    //     console.log("kkkk")
+
+    //   }
+    // })
+    const employeeId: number = this.employeeId
+    const dialogRef = this.dialog.open(DeleteRoleComponent, {
+      width: '500px',
+      data: { employeeId, roleId },
+      panelClass: 'delete-dialog'
+    });
+    dialogRef.afterClosed().subscribe(()=>{
       this.ngOnInit()
-      next: () => {
-        console.log("kkkk")
-        
-      }
     })
-   
+
+
     console.log('Delete employee:', employee);
   }
+
+
+  //   deleteEmployee(employee: Employee): void {
+  //     const dialogRef = this.dialog.open(DeleteEmployeeComponent, {
+  //       width: '500px',
+  //       data: { employee },
+  //       panelClass: 'delete-dialog'
+  //     });
+
+  //     dialogRef.afterOpened().subscribe(() => {
+  //       this.ngOnInit()
+
+  //     });
+  // }
 
   openAddRoleToEmployeeDialog(): void {
     const dialogRef = this.dialog.open(AddRoleComponent, {
@@ -94,7 +120,7 @@ export class RoleTableComponent implements OnInit {
     this.ngOnInit()
 
     dialogRef.afterClosed().subscribe(formData => {
-      
+
       if (formData) {
         console.log('Form data:', formData);
       } else {

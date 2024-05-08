@@ -70,8 +70,8 @@ export class EditRoleComponent implements OnInit {
       managerialPosition: ['', Validators.required],
       dateOfStartingWork: ['', Validators.required],
     });
-
   }
+
   ngOnInit(): void {
     this._employeeService.getEmployeeById(this.employeeId).subscribe(employee => {
       this.employee = employee;
@@ -91,6 +91,7 @@ export class EditRoleComponent implements OnInit {
       this.checkDate();
     });
   }
+
   checkDate() {
     const dateOfStartingWork = this.positionForm.get('dateOfStartingWork')?.value
     if (this.employee && new Date(dateOfStartingWork) < new Date(this.employee.dateStart)) {
@@ -118,9 +119,9 @@ export class EditRoleComponent implements OnInit {
     this.router.navigate(['/editEmployee', this.employeeId])
     this.dialogRef.close(this.positionForm.value);
   }
+
   close(): void {
     this.dialogRef.close();
   }
-
-
 }
+

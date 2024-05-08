@@ -36,20 +36,12 @@ namespace Server.Data.Repositories
                 return update;
             }
 
-            // אם התפקיד אינו קיים בטבלה או שהוא כבר פעיל, נוסיף אותו בצורה רגילה
             await _context.EmployeeInRoles.AddAsync(positionEmployee);
             await _context.SaveChangesAsync();
             return positionEmployee;
 
         }
 
-
-        //public async Task<EmployeeInRole> AddPositionToEmployeeAsync(EmployeeInRole employeeInRole)
-        //{
-        //    await _context.EmployeeInRoles.AddAsync(employeeInRole);
-        //    _context.SaveChanges();
-        //    return employeeInRole;
-        //}
         public async Task<IEnumerable<EmployeeInRole>> GetEmployeeByIdAsync(int id)
         {
             return await _context.EmployeeInRoles.Where(e => e.EmployeeId == id).Where(r=>r.StatusActive)
@@ -61,17 +53,15 @@ namespace Server.Data.Repositories
 
         public async Task<EmployeeInRole> UpdateRoleToEmployeeAsync(int employeeId, int roleId, EmployeeInRole updatedEmployeeInRole)
         {
-            // מצא את רשומת העובד בתפקיד במסד הנתונים
             var employeeInRole = await _context.EmployeeInRoles
             .FirstOrDefaultAsync(e => e.EmployeeId == employeeId && e.RoleId == roleId);
 
-            // בדוק אם העובד קיים
             if (employeeInRole == null)
             {
                 return null;
             }
 
-            // עדכן את פרטי התפקיד של העובד לפי הפרטים שהוזנו
+            // עדכן את פרטי התפקיד של העובד 
             employeeInRole.ManagerialPosition = updatedEmployeeInRole.ManagerialPosition;
             employeeInRole.DateOfStartingWork = updatedEmployeeInRole.DateOfStartingWork;
 
@@ -79,7 +69,6 @@ namespace Server.Data.Repositories
             _context.EmployeeInRoles.Update(employeeInRole);
             await _context.SaveChangesAsync();
 
-            // החזר את רשומת העובד בתפקיד לאחר העדכון
             return employeeInRole;
         }
         public async Task<bool> DeletRoleToEmployeeAsync(int employeeId, int roleId)

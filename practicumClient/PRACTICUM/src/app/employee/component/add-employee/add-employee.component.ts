@@ -55,14 +55,14 @@ export class AddEmployeeComponent implements OnInit {
       gender: new FormControl("", [Validators.required]),
     });
 
-    // Subscribe to changes in the birthday field
+
     this.employeeForm.get('birthday')?.valueChanges.subscribe(value => {
-      this.validateAge(value); // Call the function to validate age
+      this.validateAge(value); 
     });
 
-      // Subscribe to changes in the dateStart field
+     
   this.employeeForm.get('dateStart')?.valueChanges.subscribe(value => {
-    this.validateDateStart(value); // Call the function to validate dateStart
+    this.validateDateStart(value); 
   });
   }
 
@@ -72,12 +72,12 @@ export class AddEmployeeComponent implements OnInit {
       let age = today.getFullYear() - birthday.getFullYear();
       const monthDiff = today.getMonth() - birthday.getMonth();
       if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
-        age--; // Subtract 1 year if birthday hasn't occurred yet this year
+        age--; 
       }
       if (age < 18) {
-        this.employeeForm.get('birthday')?.setErrors({ 'underage': true }); // Set custom error if underage
+        this.employeeForm.get('birthday')?.setErrors({ 'underage': true }); 
       } else {
-        this.employeeForm.get('birthday')?.setErrors(null); // Clear custom error if not underage
+        this.employeeForm.get('birthday')?.setErrors(null); 
       }
     }
   }
@@ -85,14 +85,11 @@ export class AddEmployeeComponent implements OnInit {
   validateDateStart(dateStart: Date): void {
     if (dateStart) {
       const today = new Date();
-      // Define the minimum allowed date, for example, 2 months back from today
       const minDate = new Date(today.getFullYear(), today.getMonth() - 2, today.getDate());
       const maxDate = new Date(today.getFullYear(), today.getMonth() + 2, today.getDate());
       console.log("minDate", minDate);
       console.log("maxDate", maxDate);
       if (dateStart < minDate || dateStart > maxDate) {
-        // console.log("dateStart is not within the allowed range");
-        // this.employeeForm.get('dateStart')?.setErrors({ 'outOfRange': true });
         console.log("dateStart < minDate")
         this.employeeForm.get('dateStart')?.setErrors({ 'tooEarly': true });
         
@@ -111,7 +108,6 @@ export class AddEmployeeComponent implements OnInit {
       const newEmployee: Employee = this.employeeForm.value;
       console.log("newEmployee", newEmployee);
       if (!(newEmployee.birthday instanceof Date)) {
-        // If it's not a Date object, parse it into a Date object
         newEmployee.birthday = new Date(newEmployee.birthday);
       }
       newEmployee.birthday = (newEmployee.birthday)
@@ -127,8 +123,8 @@ export class AddEmployeeComponent implements OnInit {
     }
     this._employeeService.getEmployees().subscribe();
     this.dialogRef.close(this.employeeForm.value);
-   
   }
+
   close(): void {
     this.dialogRef.close();
   }

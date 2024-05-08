@@ -29,11 +29,11 @@ namespace Server.Controllers
         public async Task<ActionResult> Get()
         {
             var employees = await _employeeService.GetEmployeesAsync();
-            var activeEmployeesFiltered = employees.Where(employee => employee.StatusActive);
-
-            //Console.WriteLine("--------------------------------" + employees[0].FirstName);    
+            var activeEmployeesFiltered = employees.Where(employee => employee.StatusActive);  
             return Ok(_mapper.Map<IEnumerable<EmployeeDTO>>(activeEmployeesFiltered));
         }
+
+
         // GET api/<EmployeeController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult> Get(int id)
@@ -72,17 +72,6 @@ namespace Server.Controllers
 
         // DELETE api/<EmployeeController>/5
         [HttpDelete("{id}")]
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    var employee = await _employeeService.GetEmployeeByIdAsync(id);
-        //    if (employee is null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    employee.StatusActive = false;
-
-        //    return NoContent();
-        //}
         public async Task Delete(int id)
         {
                 await _employeeService.DeleteEmployeeAsync(id);

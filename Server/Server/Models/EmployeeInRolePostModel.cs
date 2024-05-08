@@ -8,7 +8,7 @@ namespace Server.Models
 
         public bool ManagerialPosition { get; set; }
         public DateTime DateOfStartingWork { get; set; }
-        //public Role Role { get; set; }
+       
         
 
     }

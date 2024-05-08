@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Server.Data.Repositories
 {
-    public class RoleRepositories: IRoleRepositories
+    public class RoleRepositories : IRoleRepositories
     {
         private readonly DataContext _context;
         public RoleRepositories(DataContext context)
@@ -21,14 +21,15 @@ namespace Server.Data.Repositories
             return await _context.Roles.ToListAsync();
         }
 
-     public async   Task<Role> AddRoleAsync(Role role)
+        public async Task<Role> AddRoleAsync(Role role)
         {
             _context.Roles.Add(role);
             await _context.SaveChangesAsync();
             return role;
         }
 
-      public async  Task<Role> UpdateRoleAsync(int id, Role role)
+
+        public async  Task<Role> UpdateRoleAsync(int id, Role role)
         {
             var existingRole = await _context.Roles.FindAsync(id);
             if (existingRole != null)
@@ -40,7 +41,7 @@ namespace Server.Data.Repositories
             return existingRole;
         }
 
-      public async  Task DeleteRoleAsync(int id)
+        public async  Task DeleteRoleAsync(int id)
         {
             var role = await _context.Roles.FindAsync(id);
             if (role != null)

@@ -30,30 +30,32 @@ export class RoleService {
     const roleData = { name: roleName };
     return this.http.post<any>(`${this.baseUrl}/Role`, roleData);
   }
-  
+
   addNewRoleToEmployee(employeeId: number, employeeRoles: employeeRoles): Observable<employeeRoles> {
     console.log("addNewRoleToEmployee", employeeRoles)
     return this.http.post<employeeRoles>(`${this.baseUrl}/EmployeeInRole/${employeeId}`, employeeRoles);
   }
+
   updateRoleOfEmployee(employeeId: number, roleId: number, employee: employeeRoles): Observable<Employee> {
-    console.log("updateRoleOfEmployee","employeeId",employeeId,"roleId",roleId,"employee",employee)
-    return this.http.put<Employee>(`${this.baseUrl}/EmployeeInRole/${employeeId}/role/${roleId}`, employee);}
+    console.log("updateRoleOfEmployee", "employeeId", employeeId, "roleId", roleId, "employee", employee)
+    return this.http.put<Employee>(`${this.baseUrl}/EmployeeInRole/${employeeId}/role/${roleId}`, employee);
+  }
 
-    deletePositionOfEmployee(employeeId: number,roleId:number): Observable<Employee> {
-      console.log("roleId",roleId)
-      return this.http.delete<Employee>(`${this.baseUrl}/EmployeeInRole/${employeeId}/role/${roleId}`); 
-    }
+  deletePositionOfEmployee(employeeId: number, roleId: number): Observable<Employee> {
+    console.log("roleId", roleId)
+    return this.http.delete<Employee>(`${this.baseUrl}/EmployeeInRole/${employeeId}/role/${roleId}`);
+  }
 
-    getEmployeePositionsNotAssigned(employeeId: number): Observable<role[]> {
-      return this.getPositionOfEmployeeById(employeeId).pipe(
-        switchMap(employeePositions => {
-          return this.getAllRoles().pipe(
-            map(allPositions => {
-              return allPositions.filter(position => !employeePositions.some((x: employeeRoles) => x?.roleId === position?.roleId));
+  getEmployeePositionsNotAssigned(employeeId: number): Observable<role[]> {
+    return this.getPositionOfEmployeeById(employeeId).pipe(
+      switchMap(employeePositions => {
+        return this.getAllRoles().pipe(
+          map(allPositions => {
+            return allPositions.filter(position => !employeePositions.some((x: employeeRoles) => x?.roleId === position?.roleId));
 
-            })
-          );
-        })
-      );
-    }
+          })
+        );
+      })
+    );
+  }
 }

@@ -46,17 +46,5 @@ namespace Server.Controllers
             return Ok(_mapper.Map<RoleDTO>(roleName));
         }
 
-        // PUT api/<RoleController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-
-        }
-
-        // DELETE api/<RoleController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

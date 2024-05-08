@@ -17,15 +17,9 @@ import { EmployeeService } from '../../../services/employee.service';
 import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { Employee } from '../../../entities/employee.model';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { employeeRoles } from '../../../entities/employeeRoles.model';
 import { CommonModule } from '@angular/common';
-
-
-
-
-
-
 import { MatCardModule } from '@angular/material/card';
 
 
@@ -42,7 +36,7 @@ import { MatCardModule } from '@angular/material/card';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatDialogModule ,
+    MatDialogModule,
     MatNativeDateModule,
     CommonModule,
     ReactiveFormsModule,
@@ -83,42 +77,42 @@ export class AddRoleComponent implements OnInit {
     this._employeeService.getEmployeeById(this.employeeId).subscribe(employee => {
       this.employee = employee;
     });
-    this._roleService.getEmployeePositionsNotAssigned(this.employeeId).subscribe(role=>{
-      console.log("getRolesNotAssignedToEmployee",role)
-      this.positionlist=role;
+    this._roleService.getEmployeePositionsNotAssigned(this.employeeId).subscribe(role => {
+      console.log("getRolesNotAssignedToEmployee", role)
+      this.positionlist = role;
     });
-    this.positionForm.get('dateOfStartingWork')?.valueChanges.subscribe(()=>{
+    this.positionForm.get('dateOfStartingWork')?.valueChanges.subscribe(() => {
       this.checkDate();
     });
   }
   checkDate() {
-      const dateOfStartingWork = this.positionForm.get('dateOfStartingWork')?.value
-      if (this.employee && new Date(dateOfStartingWork) < new Date(this.employee.dateStart)) {
-        this.positionForm.get('dateOfStartingWork')?.setErrors({invalidateEntryDate: true })
-      } else {
-        this.positionForm.get('dateOfStartingWork')?.setErrors(null);
-      }
+    const dateOfStartingWork = this.positionForm.get('dateOfStartingWork')?.value
+    if (this.employee && new Date(dateOfStartingWork) < new Date(this.employee.dateStart)) {
+      this.positionForm.get('dateOfStartingWork')?.setErrors({ invalidateEntryDate: true })
+    } else {
+      this.positionForm.get('dateOfStartingWork')?.setErrors(null);
     }
-    save():void{
-      if(this.positionForm.valid){
-        const newEmployeeRole :employeeRoles={
-          roleId:this.positionForm.get('roleId')?.value,
-          managerialPosition: this.positionForm.get('managerialPosition')?.value,
-          dateOfStartingWork: this.positionForm.get('dateOfStartingWork')?.value
-        };
-        this._roleService.addNewRoleToEmployee(this.employeeId,newEmployeeRole).subscribe({
-          next:(res)=>{
-            console.log("save",res)
-          },
-        })
-      }
-      this._employeeService.getEmployees().subscribe();
-      this.router.navigate(['/editEmployee',this.employeeId])
-      this.dialogRef.close(this.positionForm.value);
+  }
+  save(): void {
+    if (this.positionForm.valid) {
+      const newEmployeeRole: employeeRoles = {
+        roleId: this.positionForm.get('roleId')?.value,
+        managerialPosition: this.positionForm.get('managerialPosition')?.value,
+        dateOfStartingWork: this.positionForm.get('dateOfStartingWork')?.value
+      };
+      this._roleService.addNewRoleToEmployee(this.employeeId, newEmployeeRole).subscribe({
+        next: (res) => {
+          console.log("save", res)
+        },
+      })
     }
-    close():void{
-      this.dialogRef.close();
-    }
- 
+    this._employeeService.getEmployees().subscribe();
+    this.router.navigate(['/editEmployee', this.employeeId])
+    this.dialogRef.close(this.positionForm.value);
+  }
+  close(): void {
+    this.dialogRef.close();
+  }
+
 
 }

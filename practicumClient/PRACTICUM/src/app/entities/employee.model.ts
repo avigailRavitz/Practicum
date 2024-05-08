@@ -6,8 +6,6 @@ export class Employee{
     dateStart !:Date
     birthday !:Date
     gender !:Gender
-    
-
 }
 
 export enum Gender{

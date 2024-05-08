@@ -35,13 +35,6 @@ namespace Server.Data.Repositories
             return employee;
         }
 
-        //public async Task DeleteEmployeeAsync(int id)
-        //{
-        //    var temp = await _context.Employees.FirstOrDefaultAsync(x => x.Id == id);
-        //    temp.StatusActive = false;
-        //    await _context.SaveChangesAsync();
-
-        //}
         public async Task DeleteEmployeeAsync(int employeeId)
         {
             var employee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employeeId);

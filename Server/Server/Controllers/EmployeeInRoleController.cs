@@ -21,12 +21,6 @@ namespace Server.Controllers
             _employeeInRoleService = employeeInRoleServices;
             _mapper = mapper;
         }
-
-        // GET: api/<EmployeeInRoleController>
-
-
-
-        // GET api/<EmployeeInRoleController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult> GetEmployeePositions(int id)
         {
@@ -38,8 +32,6 @@ namespace Server.Controllers
             return Ok(_mapper.Map<IEnumerable<EmployeeInRole>>(rolesEmployee));
         }
 
-
-        //// POST api/<EmployeeInRoleController>
         [HttpPost("{employeeId}")]
         public async Task<ActionResult<EmployeeInRole>> AddRoleToEmployee(int employeeId, [FromBody] EmployeeInRolePostModel employeeInRole)
         {
@@ -72,16 +64,6 @@ namespace Server.Controllers
             }
             return Ok(result);
         }
-        // PUT api/<EmployeeInRoleController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
 
-        //// DELETE api/<EmployeeInRoleController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

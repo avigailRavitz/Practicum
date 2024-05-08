@@ -27,7 +27,7 @@ export class NewRoleComponent implements OnInit {
     private dialogRef: MatDialogRef<NewRoleComponent>,
     private formBuilder: FormBuilder,
     private roleService: RoleService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.roleForm = this.formBuilder.group({
@@ -43,11 +43,11 @@ export class NewRoleComponent implements OnInit {
     if (this.roleForm.valid) {
       const roleName = this.roleForm.get('roleName').value;
       console.log('Role Name:', roleName);
-this.roleService.addNewRole(roleName).subscribe({
-  next(value) {
-    console.log("add-new-role",roleName)
-  },
-})
+      this.roleService.addNewRole(roleName).subscribe({
+        next(value) {
+          console.log("add-new-role", roleName)
+        },
+      })
       this.dialogRef.close();
     }
   }
