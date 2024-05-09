@@ -115,5 +115,26 @@ export class EmployeeTableComponent implements OnInit {
       width: '600px'
     });
   }
+
+
+
+
+
+
+
+  showExportText(): void {
+    const exportText = document.querySelector('.export-text');
+    if (exportText) {
+        exportText.classList.remove('hidden');
+    }
+}
+
+hideExportText(): void {
+    const exportText = document.querySelector('.export-text');
+    if (exportText) {
+        exportText.classList.add('hidden');
+    }
+}
+
 }
 

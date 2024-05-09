@@ -428,3 +428,15 @@ table.table td .add {
   background-color: #f2f2f2;
   border-radius: 5px;
 }
+
+
+
+
+.export-text {
+  display: none;
+  font-size: 0.8em; /* ערך זה יכול להתאים לך, אתה יכול לשנות אותו למה שנראה לך הכי נכון */
+}
+
+.export-to-excel:hover .export-text {
+  display: inline; /* תראה את הכיתוב רק כאשר עכבר רוחף על האיקון */
+}

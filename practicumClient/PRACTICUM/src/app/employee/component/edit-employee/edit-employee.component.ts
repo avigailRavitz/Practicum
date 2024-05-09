@@ -116,20 +116,21 @@ export class EditEmployeeComponent implements OnInit {
     const control = this.employeeForm.get(controlName);
     if (control && control.errors) {
       if (control.errors['required']) {
-        return 'שדה זה הוא שדה חובה';
+        return 'This field is required';
       }
       if (control.errors['minlength']) {
-        return 'אורך מינימלי הוא 2 תווים';
+        return 'Minimum length is 2 characters';
       }
       if (control.errors['pattern']) {
         if (controlName === 'identity') {
-          return 'תבנית לא תקינה (9 ספרות בלבד)';
+          return 'Invalid pattern (only 9 digits)';
         }
-        return 'תבנית לא תקינה';
+        return 'Invalid pattern';
       }
     }
     return '';
-  }
+}
+
 
   printTable(): void {
     window.print();

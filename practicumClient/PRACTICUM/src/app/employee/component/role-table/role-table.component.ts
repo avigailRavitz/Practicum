@@ -75,14 +75,6 @@ export class RoleTableComponent implements OnInit {
   deleteRoleEmployee(employee: employeeRoles) {
     console.log("this.roleId", employee.roleId)
     const roleId: number = Number(employee.roleId);
-
-    // this._roleService.deletePositionOfEmployee(this.employeeId, roleId).subscribe(e => {
-    //   this.ngOnInit()
-    //   next: () => {
-    //     console.log("kkkk")
-
-    //   }
-    // })
     const employeeId: number = this.employeeId
     const dialogRef = this.dialog.open(DeleteRoleComponent, {
       width: '500px',
@@ -92,24 +84,8 @@ export class RoleTableComponent implements OnInit {
     dialogRef.afterClosed().subscribe(()=>{
       this.ngOnInit()
     })
-
-
     console.log('Delete employee:', employee);
   }
-
-
-  //   deleteEmployee(employee: Employee): void {
-  //     const dialogRef = this.dialog.open(DeleteEmployeeComponent, {
-  //       width: '500px',
-  //       data: { employee },
-  //       panelClass: 'delete-dialog'
-  //     });
-
-  //     dialogRef.afterOpened().subscribe(() => {
-  //       this.ngOnInit()
-
-  //     });
-  // }
 
   openAddRoleToEmployeeDialog(): void {
     const dialogRef = this.dialog.open(AddRoleComponent, {

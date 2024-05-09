@@ -133,25 +133,26 @@ export class AddEmployeeComponent implements OnInit {
     const control = this.employeeForm.get(controlName);
     if (control && control.errors) {
       if (control.errors['required']) {
-        return 'שדה זה הוא שדה חובה';
+        return 'This field is required';
       }
       if (control.errors['minlength']) {
-        return 'אורך מינימלי הוא 2 תווים';
+        return 'Minimum length is 2 characters';
       }
       if (control.errors['pattern']) {
         if (controlName === 'identity') {
-          return 'תבנית לא תקינה (9 ספרות בלבד)';
+          return 'Invalid pattern (9 digits only)';
         }
-        return 'תבנית לא תקינה';
+        return 'Invalid pattern';
       }
       if (control.errors['underage']) {
-        return 'העובד חייב להיות בן 18 ומעלה';
+        return 'Employee must be 18 years old or older';
       }
       if (control.errors['tooEarly']) {
-        return 'לא ניתן לקבוע תאריך כניסה לעבודה לפני תאריך חודש התאריך הנוכחי';
+        return 'Cannot set work start date before the current month';
       }
     }
     return '';
   }
+
 
 }
