@@ -30,7 +30,7 @@ export class EmployeeTableComponent implements OnInit {
     private roleService: RoleService,
     private dialog: MatDialog,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadEmployees();
@@ -76,9 +76,9 @@ export class EmployeeTableComponent implements OnInit {
 
     dialogRef.afterOpened().subscribe(() => {
       this.ngOnInit()
-    
+
     });
-}
+  }
 
 
   applyFilter(event: Event): void {
@@ -115,26 +115,6 @@ export class EmployeeTableComponent implements OnInit {
       width: '600px'
     });
   }
-
-
-
-
-
-
-
-  showExportText(): void {
-    const exportText = document.querySelector('.export-text');
-    if (exportText) {
-        exportText.classList.remove('hidden');
-    }
-}
-
-hideExportText(): void {
-    const exportText = document.querySelector('.export-text');
-    if (exportText) {
-        exportText.classList.add('hidden');
-    }
-}
 
 }
 

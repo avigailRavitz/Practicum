@@ -81,7 +81,7 @@ export class RoleTableComponent implements OnInit {
       data: { employeeId, roleId },
       panelClass: 'delete-dialog'
     });
-    dialogRef.afterClosed().subscribe(()=>{
+    dialogRef.afterClosed().subscribe(() => {
       this.ngOnInit()
     })
     console.log('Delete employee:', employee);

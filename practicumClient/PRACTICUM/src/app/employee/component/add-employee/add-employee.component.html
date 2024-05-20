@@ -7,9 +7,10 @@
       <mat-hint align="end">Please enter your first name</mat-hint>
       <mat-error *ngIf="employeeForm.get('firstName')?.invalid">
         <span *ngIf="employeeForm.get('firstName')?.errors?.['required']">This field is required</span>
-        <span *ngIf="employeeForm.get('firstName')?.errors?.['minlength']">Minimum length is 2 characters</span>        
+        <span *ngIf="employeeForm.get('firstName')?.errors?.['minlength']">Minimum length is 2 characters</span>
       </mat-error>
     </mat-form-field>
+    
 
     <mat-form-field class="example-full-width">
       <mat-label>Last Name</mat-label>
@@ -45,7 +46,7 @@
         <span *ngIf="employeeForm.get('birthday')?.errors?.['underage']">Employee must be 18 years old or older</span>
       </mat-error>
     </mat-form-field>
-    
+
 
     <mat-form-field class="example-full-width">
       <mat-label>Date Start</mat-label>
@@ -55,10 +56,11 @@
       <mat-hint align="end">Please select the start date</mat-hint>
       <mat-error *ngIf="employeeForm.get('dateStart')?.invalid">
         <span *ngIf="employeeForm.get('dateStart')?.errors?.['required']">This field is required</span>
-        <span *ngIf="employeeForm.get('dateStart')?.errors?.['tooEarly']">Cannot set work start date before this date</span>
+        <span *ngIf="employeeForm.get('dateStart')?.errors?.['tooEarly']">Cannot set work start date before this
+          date</span>
       </mat-error>
     </mat-form-field>
-    
+
 
     <mat-form-field class="example-full-width">
       <mat-label>Gender</mat-label>
@@ -72,10 +74,11 @@
       </mat-error>
     </mat-form-field>
 
-  <div class="button-container">
-    <button  id="save" mat-raised-button color="turquoise" type="submit" (click)="addEmployee()" [disabled]="!employeeForm.valid">Save</button>
-    <button id="Cancel" mat-raised-button color="turquoise" type="button" (click)="close()">Cancel</button>
-  </div>
-  
+    <div class="button-container">
+      <button id="save" mat-raised-button color="turquoise" type="submit" (click)="addEmployee()"
+        [disabled]="!employeeForm.valid">Save</button>
+      <button id="Cancel" mat-raised-button color="turquoise" type="button" (click)="close()">Cancel</button>
+    </div>
+
   </form>
 </mat-card>

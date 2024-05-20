@@ -41,9 +41,9 @@
         </button>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link">
           <i class="fa fa-user"></i>
-          {{ employee.firstName }}-{{employee.lastName}}
+          {{ employee?.firstName }}-{{employee?.lastName}}
         </a>
       </li>
       
@@ -106,8 +106,11 @@
           <mat-hint align="end">Please select your birthday</mat-hint>
           <mat-error *ngIf="employeeForm.get('birthday')?.invalid">
             <span *ngIf="employeeForm.get('birthday')?.errors?.['required']">This field is required</span>
+            <span *ngIf="employeeForm.get('birthday')?.errors?.['invalidDate']">Invalid date</span>
+            <span *ngIf="employeeForm.get('birthday')?.errors?.['underage']">Age under 18 is not allowed</span>
           </mat-error>
         </mat-form-field>
+        
 
         <mat-form-field class="example-full-width">
           <mat-label>Gender</mat-label>

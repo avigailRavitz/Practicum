@@ -62,7 +62,7 @@ export class EditEmployeeComponent implements OnInit {
           firstName: [this.employee.firstName, [Validators.required, Validators.minLength(2)]],
           lastName: [this.employee.lastName, [Validators.required, Validators.minLength(2)]],
           identity: [this.employee.identity, [Validators.required, Validators.pattern(/^\d{9}$/)]],
-          birthday: [this.employee.birthday, Validators.required],
+          birthday: new FormControl(this.employee.birthday, [Validators.required, this.validateAge.bind(this)]),
           gender: [this.employee.gender, Validators.required],
           dateStart: [this.employee.dateStart, Validators.required],
         })
@@ -112,6 +112,24 @@ export class EditEmployeeComponent implements OnInit {
       gender: new FormControl("", [Validators.required]),
     });
   }
+
+
+//בדיקה ולדציה תאריך לידה
+  validateAge(control: FormControl): { [key: string]: any } | null {
+    const birthday = control.value;
+    // בדיקה אם התאריך הוא תאריך חוקי
+    if (isNaN(Date.parse(birthday))) {
+      return { 'invalidDate': true }; 
+    }
+    const today = new Date();
+    const eighteenYearsAgo = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+    if (new Date(birthday) > eighteenYearsAgo) {
+      return { 'underage': true }; 
+    }
+    return null;
+  }
+  
+
   getFormControlError(controlName: string): string {
     const control = this.employeeForm.get(controlName);
     if (control && control.errors) {
@@ -129,7 +147,7 @@ export class EditEmployeeComponent implements OnInit {
       }
     }
     return '';
-}
+  }
 
 
   printTable(): void {
@@ -147,7 +165,7 @@ export class EditEmployeeComponent implements OnInit {
     const dialogRef = this.dialog.open(AddRoleComponent, {
       width: '50%',
       height: '70%',
-      data: { employeeId: this.employeeId } 
+      data: { employeeId: this.employeeId }
     });
 
     dialogRef.afterClosed().subscribe(formData => {
